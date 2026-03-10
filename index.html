@@ -1,0 +1,278 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Digital Resource Hub — St. Thomas Mar Thoma Church, Vancouver</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#0c1e3c;--gold:#b8923a;--gold2:#d4a84b;--gold3:#f0cc78;--cream:#faf6ee;--white:#fff;--muted:#7a8aaa;--border:#ddd3b8;--soft:#f4ede0;--green:#155c35;--green-bg:#e8f5ee;--red:#8a1818;--blue:#1a3d7a;--blue-bg:#eaf0fa;--ink:#1c2640;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;}
+/* HEADER */
+.hdr{background:linear-gradient(168deg,#040d1e,#0c1e3c,#192f55);position:relative;overflow:hidden;}
+.hdr::after{content:'';position:absolute;inset:0;opacity:0.04;background:repeating-linear-gradient(62deg,transparent 0,transparent 38px,var(--gold) 38px,var(--gold) 39px);}
+.hdr-in{position:relative;z-index:1;text-align:center;padding:36px 20px 26px;}
+.cross{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:rgba(184,146,58,0.1);border:1.5px solid rgba(184,146,58,0.35);display:flex;align-items:center;justify-content:center;}
+.cross svg{width:32px;height:32px;}
+.jub{display:inline-flex;align-items:center;gap:7px;background:rgba(184,146,58,0.14);border:1px solid rgba(184,146,58,0.3);border-radius:28px;padding:4px 14px;margin-bottom:11px;}
+.jub-n{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;background:linear-gradient(135deg,#8a5c00,var(--gold2),var(--gold3),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.jub-t{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold3);}
+.hdr-ch{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,2rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:4px;}
+.hdr-ch em{font-style:italic;color:var(--gold3);}
+.hdr-sub{font-size:0.67rem;color:rgba(255,255,255,0.38);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.hdr-desc{font-size:0.76rem;color:rgba(255,255,255,0.46);max-width:500px;margin:0 auto;}
+.dioc-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;background:rgba(5,10,25,0.7);border-top:1px solid rgba(184,146,58,0.15);padding:8px 16px;font-size:0.63rem;color:rgba(255,255,255,0.4);}
+.ds-l{color:var(--gold3);font-weight:700;margin-right:3px;}
+.gold-rule{height:3px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent);}
+/* WRAP */
+.wrap{max-width:980px;margin:0 auto;padding:22px 14px 64px;}
+/* QUICK ACTIONS */
+.qa-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.qa-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;text-decoration:none;border:none;transition:all .15s;}
+.qa-btn:active{transform:scale(0.96);}
+.qa-p{background:linear-gradient(135deg,var(--gold2),#9a7020);color:var(--navy);box-shadow:0 4px 12px rgba(184,146,58,0.22);}
+.qa-s{background:var(--white);color:var(--navy);border:1.5px solid var(--border);}
+.qa-g{background:var(--green);color:#fff;}
+.qa-b{background:var(--blue);color:#fff;}
+/* SEARCH */
+.search-wrap{margin-bottom:18px;position:relative;}
+.search-wrap input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:0.86rem;background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;}
+.search-wrap input:focus{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(184,146,58,0.1);}
+.search-wrap .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:0.9rem;pointer-events:none;}
+/* SECTION HEADERS */
+.sh{display:flex;align-items:center;gap:9px;margin:22px 0 12px;}
+.sh-ic{font-size:1rem;}
+.sh-tx h2{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--navy);}
+.sh-tx p{font-size:0.63rem;color:var(--muted);}
+/* CARDS GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:0;}
+.file-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);overflow:hidden;transition:box-shadow .18s,transform .18s;display:flex;flex-direction:column;}
+.file-card:hover{box-shadow:0 6px 22px rgba(12,30,60,0.1);transform:translateY(-2px);}
+.fc-hd{padding:13px 14px 10px;display:flex;align-items:flex-start;gap:11px;}
+.fc-ic{width:40px;height:40px;flex-shrink:0;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.fc-meta h3{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:2px;line-height:1.25;}
+.fc-meta p{font-size:0.66rem;color:var(--muted);line-height:1.5;}
+.fc-badges{display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 10px;}
+.badge{padding:2px 8px;border-radius:10px;font-size:0.57rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;}
+.b-mem{background:rgba(21,92,53,0.1);color:var(--green);border:1px solid rgba(21,92,53,0.2);}
+.b-trst{background:rgba(184,146,58,0.1);color:#8a6010;border:1px solid rgba(184,146,58,0.2);}
+.b-exco{background:rgba(26,61,122,0.1);color:var(--blue);border:1px solid rgba(26,61,122,0.2);}
+.b-pub{background:var(--soft);color:var(--ink);border:1px solid var(--border);}
+.b-new{background:rgba(220,50,50,0.1);color:var(--red);border:1px solid rgba(220,50,50,0.2);}
+.b-live{background:rgba(21,92,53,0.1);color:var(--green);border:1px solid rgba(21,92,53,0.2);}
+.fc-ft{margin-top:auto;padding:9px 14px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.fc-lk{color:var(--gold);font-size:0.73rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:4px;}
+.fc-lk:hover{color:var(--navy);}
+.fc-sz{font-size:0.6rem;color:var(--muted);}
+/* NOTICE */
+.notice{background:var(--blue-bg);border:1.5px solid rgba(26,61,122,0.18);border-radius:10px;padding:13px 15px;margin-bottom:18px;display:flex;gap:10px;}
+.n-ic{font-size:1.1rem;flex-shrink:0;}
+.n-tx h3{font-size:0.72rem;font-weight:700;color:var(--blue);margin-bottom:2px;}
+.n-tx p{font-size:0.69rem;color:#334d8a;line-height:1.6;}
+/* STATS ROW */
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.stat{background:var(--white);border:1.5px solid var(--border);border-radius:9px;padding:12px 14px;flex:1;min-width:120px;text-align:center;}
+.stat-v{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);}
+.stat-l{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-top:2px;}
+/* COLOR DOTS */
+.c-navy{background:rgba(12,30,60,0.08);}
+.c-gold{background:rgba(184,146,58,0.1);}
+.c-green{background:rgba(21,92,53,0.1);}
+.c-blue{background:rgba(26,61,122,0.1);}
+.c-red{background:rgba(138,24,24,0.08);}
+.c-dark{background:rgba(17,24,39,0.06);}
+@media(max-width:560px){.qa-row{flex-direction:column;}.stats{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-in">
+    <div class="cross"><svg viewBox="0 0 38 38" fill="none"><rect x="16.5" y="2" width="5" height="34" rx="2" fill="#d4a84b"/><rect x="2" y="12" width="34" height="5" rx="2" fill="#d4a84b"/><circle cx="19" cy="19" r="17" stroke="#d4a84b" stroke-width="1" fill="none" opacity="0.35"/></svg></div>
+    <div class="jub"><span class="jub-n">&#10022; 25 &#10022;</span><span class="jub-t">Silver Jubilee 2025</span></div>
+    <div class="hdr-ch">St. Thomas Mar Thoma Church <em>Vancouver</em></div>
+    <div class="hdr-sub">10787 128 Street, Surrey, BC V3T 3A2 &nbsp;&#183;&nbsp; Holy Qurbana every Sunday 4:00 PM PST</div>
+    <div class="hdr-desc">Digital Resource Hub &mdash; Contributions, Parish Directory &amp; Live Membership Portal for the Executive Committee</div>
+  </div>
+  <div class="dioc-strip">
+    <span><span class="ds-l">Diocese:</span>Diocese of North America</span>
+    <span><span class="ds-l">Bishop:</span>Rt. Rev. Dr. Abraham Mar Paulos Episcopa</span>
+    <span><span class="ds-l">Metropolitan:</span>Most Rev. Dr. Theodosius Mar Thoma (22nd)</span>
+    <span><span class="ds-l">Parish:</span>vancouvermarthomachurch.com</span>
+  </div>
+</div>
+<div class="gold-rule"></div>
+
+<div class="wrap">
+  <!-- QUICK ACTIONS -->
+  <div class="qa-row" style="margin-top:6px;">
+    <a class="qa-btn qa-p" href="membership-portal.html">&#127760; Live Membership Portal</a>
+    <a class="qa-btn qa-p" href="directory-registration-form.html">&#128203; Family Directory Form</a>
+    <a class="qa-btn qa-g" href="directory-proposal.html">&#9997; ExCo Proposal</a>
+    <a class="qa-btn qa-s" href="church-directory-portal.html">&#128214; Directory Browse</a>
+    <a class="qa-btn qa-b" href="contribution.html">&#128176; Contributions</a>
+    <a class="qa-btn qa-s" href="integrated-dashboard.html">&#128187; Trustee Dashboard</a>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <span class="si">&#128269;</span>
+    <input type="text" id="srch" placeholder="Search all documents (e.g. contributions, directory, portal, ExCo)&#8230;" oninput="doSearch(this.value)"/>
+  </div>
+
+  <div class="notice">
+    <div class="n-ic">&#128161;</div>
+    <div class="n-tx"><h3>New in this update (March 2026)</h3><p>Three new documents have been added: the <strong>Live Membership Portal</strong> with mandatory three-approver workflow, the fully updated <strong>Family Directory Information Form</strong> (Parts A&#8211;K, incorporating all Diocese of North America and Dubai Mar Thoma Parish standard fields including Home Parish, blood groups, and civil/church authorities), and the updated <strong>Executive Committee Proposal</strong> with approved authorities list and portal specification. All files are listed below.</p></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-v">11</div><div class="stat-l">Total Documents</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--green);">3</div><div class="stat-l">New / Updated (Mar 2026)</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--gold);">4</div><div class="stat-l">Contribution Tools</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--blue);">4</div><div class="stat-l">Directory &amp; Portal Files</div></div>
+  </div>
+
+  <!-- DIRECTORY & PORTAL SECTION -->
+  <div class="sh"><span class="sh-ic">&#127963;</span><div class="sh-tx"><h2>Church Directory &amp; Live Membership Portal</h2><p>Silver Jubilee 2025 &mdash; Family registration, ExCo proposal, and member portal</p></div></div>
+  <div class="grid" id="grid-dir">
+
+    <div class="file-card" data-kw="membership portal login approval workflow three approver live secure">
+      <div class="fc-hd">
+        <div class="fc-ic c-green">&#127760;</div>
+        <div class="fc-meta"><h3>Live Membership Portal</h3><p>Secure online platform for family registration, profile updates, and directory management. Four views: Public, Login, Member Profile, Admin Queue with 7-step three-approver workflow.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-new">&#9679; New</span><span class="badge b-live">3-Approver Rule</span><span class="badge b-mem">Members</span><span class="badge b-exco">ExCo</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="membership-portal.html">Open Portal &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="directory registration form family information home parish idavaka blood group children spouse exco approval">
+      <div class="fc-hd">
+        <div class="fc-ic c-navy">&#128203;</div>
+        <div class="fc-meta"><h3>Family Directory Information Form</h3><p>Complete 11-part registration form (Parts A&#8211;K). Head of family, spouse, up to 4 children, Home Parish India, civil authorities, listing preferences, ExCo approval block with interactive vote.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-new">&#9679; Updated</span><span class="badge b-mem">Members</span><span class="badge b-exco">ExCo Approval</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="directory-registration-form.html">Open Form &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="proposal executive committee directory exco resolutions approval diocesan authorities premier mp mla fire chief">
+      <div class="fc-hd">
+        <div class="fc-ic c-blue">&#9997;</div>
+        <div class="fc-meta"><h3>Executive Committee Proposal</h3><p>Formal church proposal for ExCo review. Includes Diocesan alignment (Diocese of North America), civil authorities table, revenue model (CAD $50,000 target), Live Portal spec, six resolutions, and approval note.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-new">&#9679; Updated</span><span class="badge b-exco">ExCo Only</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="directory-proposal.html">Open Proposal &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="directory portal browse search prayer group registration public silver jubilee">
+      <div class="fc-hd">
+        <div class="fc-ic c-gold">&#128214;</div>
+        <div class="fc-meta"><h3>Parish Directory Portal</h3><p>Public-facing directory with family search, prayer group filter, sponsorship tiers, live fundraising progress bar, and family registration. Powered by localStorage. Pre-loaded with sample families.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-pub">Public</span><span class="badge b-mem">Members</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="church-directory-portal.html">Open Portal &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+  </div>
+
+  <!-- CONTRIBUTIONS SECTION -->
+  <div class="sh" style="margin-top:22px;"><span class="sh-ic">&#128176;</span><div class="sh-tx"><h2>Contribution System</h2><p>Four channels for collecting offerings &amp; contributions — website, Facebook, WhatsApp, and tablet kiosk</p></div></div>
+  <div class="grid" id="grid-con">
+
+    <div class="file-card" data-kw="contribution website paypal interac online 15 categories">
+      <div class="fc-hd">
+        <div class="fc-ic c-navy">&#128176;</div>
+        <div class="fc-meta"><h3>Online Contribution Form</h3><p>Website version. 15 contribution categories, auto-calculating CAD totals, PayPal + Interac e-Transfer + cheque payment. Three-step flow. Print receipt.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-pub">Website</span><span class="badge b-mem">Members</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="contribution.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="facebook social media contribution share open graph post">
+      <div class="fc-hd">
+        <div class="fc-ic c-blue">&#128084;</div>
+        <div class="fc-meta"><h3>Facebook Share Page</h3><p>Open Graph-optimised contribution page for Facebook sharing. Includes animated hero, ready-to-copy post text with Scripture (2 Cor 9:7), and all 15 categories.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-pub">Facebook</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="contribution-facebook.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="whatsapp share chat contribution wa link copy message">
+      <div class="fc-hd">
+        <div class="fc-ic c-green">&#128172;</div>
+        <div class="fc-meta"><h3>WhatsApp Share Page</h3><p>WhatsApp-styled contribution page. Pre-formatted message with WA markdown, copy-to-clipboard and direct wa.me deep link buttons. Church green branding.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-pub">WhatsApp</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="contribution-whatsapp.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="kiosk tablet pin lock church entrance contribution session log trustee">
+      <div class="fc-hd">
+        <div class="fc-ic c-dark">&#128083;</div>
+        <div class="fc-meta"><h3>Tablet Kiosk</h3><p>PIN-locked full-screen kiosk for the church entrance tablet. 15 category tiles, session log, running totals, trustee notes, and print report. Default PIN: 1234.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-trst">Trustees</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="contribution-tablet-kiosk.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+  </div>
+
+  <!-- MANAGEMENT SECTION -->
+  <div class="sh" style="margin-top:22px;"><span class="sh-ic">&#128187;</span><div class="sh-tx"><h2>Church Management &amp; Operations</h2><p>Trustee dashboard, operations guide, and hosting instructions</p></div></div>
+  <div class="grid" id="grid-mgmt">
+
+    <div class="file-card" data-kw="dashboard trustee pin statistics chart csv export all contributions google sheets">
+      <div class="fc-hd">
+        <div class="fc-ic c-navy">&#128187;</div>
+        <div class="fc-meta"><h3>Integrated Trustee Dashboard</h3><p>PIN-protected (1234) consolidated dashboard for all 4 contribution channels. Live stats, category bar chart, CSV export, Google Sheets sync configuration, settings panel.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-trst">Trustees</span><span class="badge b-exco">Finance</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="integrated-dashboard.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="trustee operations guide google sheets apps script sop security pipeda">
+      <div class="fc-hd">
+        <div class="fc-ic c-gold">&#128218;</div>
+        <div class="fc-meta"><h3>Trustee Operations Guide</h3><p>System architecture, 7-step Google Sheets setup, Apps Script code, 4 SOPs, channel comparison, PIPEDA guidance.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-trst">Trustees</span><span class="badge b-exco">Admin</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="trustee-operations-guide.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+    <div class="file-card" data-kw="hosting share netlify github qr code deploy godaddy exco share">
+      <div class="fc-hd">
+        <div class="fc-ic c-blue">&#127760;</div>
+        <div class="fc-meta"><h3>Hosting &amp; Sharing Guide</h3><p>Step-by-step instructions for Netlify Drop, GitHub Pages, GoDaddy, and Google Drive hosting. QR code generation and ExCo email template included.</p></div>
+      </div>
+      <div class="fc-badges"><span class="badge b-exco">Admin</span></div>
+      <div class="fc-ft"><a class="fc-lk" href="how-to-share.html">Open &#8594;</a><span class="fc-sz">HTML</span></div>
+    </div>
+
+  </div>
+
+  <!-- NO RESULTS -->
+  <div id="no-results" style="display:none;text-align:center;padding:30px;color:var(--muted);font-size:0.85rem;">No matching documents found. Try a different keyword.</div>
+
+  <!-- PENDING ACTIONS -->
+  <div style="background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:16px;margin-top:22px;">
+    <div style="font-family:'Playfair Display',serif;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:12px;">&#128204; Pending Actions for Church Administration</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--red);">&#128204; Replace <code>XXXXXXXXX</code> in contribution files with real PayPal hosted_button_id</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--red);">&#128204; Replace <code>[PASTE LINK HERE]</code> in Facebook/WhatsApp files with hosted URL</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--gold);">&#9997; Fill in Vicar&#8217;s name in ExCo vote table (directory-registration-form.html Part K)</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--gold);">&#9997; Fill in Anglican Bishop name placeholder in directory-proposal.html Section 3</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--blue);">&#128274; Change default kiosk &amp; dashboard PIN from 1234 after first admin login</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--blue);">&#128274; Deploy Live Membership Portal with real back-end database (engage web developer)</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--green);">&#10013; Present ExCo Proposal at next Executive Committee meeting</div>
+      <div style="font-size:0.7rem;padding:7px 10px;background:var(--soft);border-radius:6px;border-left:3px solid var(--green);">&#10013; Upload all files to Netlify Drop or GoDaddy; share link with ExCo</div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+<div class="gold-rule"></div>
+<footer style="background:var(--navy);color:rgba(255,255,255,0.38);text-align:center;padding:20px;font-size:0.67rem;line-height:1.9;">
+  <div>&#10013; &nbsp;St. Thomas Mar Thoma Church, Vancouver &nbsp;&#183;&nbsp; Silver Jubilee 2025 &nbsp;&#183;&nbsp; Diocese of North America</div>
+  <div><a href="https://vancouvermarthomachurch.com/" style="color:var(--gold2);text-decoration:none;">vancouvermarthomachurch.com</a> &nbsp;&#183;&nbsp; <a href="mailto:vancouvermarthoma@gmail.com" style="color:var(--gold2);text-decoration:none;">vancouvermarthoma@gmail.com</a> &nbsp;&#183;&nbsp; <a href="https://marthomana.org/" style="color:var(--gold2);text-decoration:none;">marthomana.org</a></div>
+  <div style="margin-top:3px;font-size:0.59rem;">For internal use by the Executive Committee &nbsp;&#183;&nbsp; Private circulation only &nbsp;&#183;&nbsp; Not for public distribution</div>
+</footer>
+<script>
+function doSearch(q){const kw=q.toLowerCase().trim();const cards=document.querySelectorAll('.file-card');let found=0;cards.forEach(c=>{const k=(c.dataset.kw||'')+' '+(c.querySelector('h3')?.textContent||'')+' '+(c.querySelector('p')?.textContent||'');const show=!kw||k.toLowerCase().includes(kw);c.style.display=show?'':'none';if(show)found++;});document.getElementById('no-results').style.display=found?'none':'block';}
+</script>
+</body>
+</html>
